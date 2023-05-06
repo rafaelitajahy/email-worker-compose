@@ -16,7 +16,8 @@ class Sender(Bottle):
         db_host = os.getenv('DB_HOST', 'db')
         db_user = os.getenv('DB_USER', 'postgres')
         db_name = os.getenv('DB_NAME', 'sender')
-        dsn = f'dbname={db_name} user={db_user} host={db_host}'
+        db_password = os.getenv('DB_PASSWORD', 'postgres')
+        dsn = f'dbname={db_name} user={db_user} password={db_password} host={db_host}'
         
         self.conn = psycopg2.connect(dsn)
 
